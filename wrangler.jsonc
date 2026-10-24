@@ -1,8 +1,12 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "rider-service",
+  "main": "src/index.js",
   "compatibility_date": "2026-10-23",
+  "ai": { "binding": "AI" },
   "assets": {
-    "directory": "./public"
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
   }
 }
