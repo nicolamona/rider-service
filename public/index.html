@@ -63,9 +63,13 @@
     .service h3{font-size:1.12rem;margin-bottom:9px}
     .service p{font-size:.92rem;color:var(--muted);margin-bottom:0}
     .about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:55px;align-items:center}
-    .about-photo{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);min-height:390px;background:#111c2b}
-    .about-photo img{height:100%;min-height:390px;width:100%;object-fit:cover;opacity:.83}
-    .photo-label{position:absolute;bottom:18px;left:18px;right:18px;background:rgba(8,13,23,.84);border:1px solid var(--line);padding:14px 16px;border-radius:12px;color:var(--mint);font-weight:800}
+    .about-photo{position:relative;border-radius:22px;overflow:hidden;border:1px solid rgba(71,245,208,.26);height:clamp(245px,31vw,355px);min-height:0;background:#111c2b;isolation:isolate;box-shadow:0 24px 65px rgba(0,0,0,.28)}
+    .about-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(4,10,17,.02) 20%,rgba(4,10,17,.78) 100%),linear-gradient(110deg,rgba(71,245,208,.1),transparent 48%);z-index:1}
+    .about-photo img{height:100%;min-height:0;width:100%;object-fit:cover;object-position:center 46%;opacity:.88;transform:scale(1.04);animation:aboutDrift 18s ease-in-out infinite alternate;will-change:transform;display:block}
+    .photo-label{position:absolute;z-index:2;bottom:18px;left:18px;right:18px;background:rgba(8,13,23,.72);backdrop-filter:blur(12px);border:1px solid rgba(71,245,208,.3);padding:14px 16px;border-radius:12px;color:var(--mint);font-weight:800;letter-spacing:.035em}
+    @keyframes aboutDrift{from{transform:scale(1.04) translate3d(-.6%,0,0)}to{transform:scale(1.13) translate3d(.8%,-1%,0)}}
+    @media(max-width:760px){.about-photo{height:clamp(220px,62vw,285px);min-height:0}.about-photo img{min-height:0}}
+    @media(prefers-reduced-motion:reduce){.about-photo img{animation:none;transform:scale(1.04)}}
     .about-copy h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.04em;line-height:1.08;margin:14px 0 20px}
     .about-copy p{color:var(--muted)}
     .checks{list-style:none;padding:0;margin:24px 0;display:grid;gap:12px}
