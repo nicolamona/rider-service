@@ -46,7 +46,7 @@ export default {
       const messages=body.messages.slice(-14).filter(m=>m&&["user","assistant"].includes(m.role)&&typeof m.content==="string").map(m=>({role:m.role,content:m.content.slice(0,1200)}));
       if(!messages.length||messages[messages.length-1].role!=="user") return json({error:"No se pudo leer tu respuesta."},400);
       if(messages.reduce((n,m)=>n+m.content.length,0)>10000) return json({error:"La conversación es demasiado larga. Iniciá una nueva solicitud."},413);
-      if(!env.AI) return json({error:"El asistente todavía no está habilitado en Cloudflare."},503);
+      if(!env.AI){ console.error("RIDER_AI_BINDING_MISSING: env.AI no está disponible en esta versión del Worker"); return json({error:"El asistente no está disponible en este momento. Probá nuevamente más tarde."},503); }
       try{
         const result=await env.AI.run(MODEL,{messages:[{role:"system",content:SYSTEM_PROMPT},...messages],max_tokens:420,temperature:0.2,response_format:{type:"json_object"}});
         const parsed=parseModelOutput(result?.response||result?.output_text||"");
@@ -54,6 +54,7 @@ export default {
         const finished=parsed.finished===true&&typeof parsed.summary==="string"&&parsed.summary.trim().length>0;
         return json({message:parsed.message.slice(0,1600),finished,summary:finished?parsed.summary.slice(0,5000):""});
       }catch(error){
+        console.error("RIDER_AI_RUN_FAILED", {name: String(error?.name||"Error").slice(0,80), message: String(error?.message||error||"sin detalle").slice(0,300)});
         return json({error:"El asistente no está disponible en este momento. Probá nuevamente más tarde."},503);
       }
     }
