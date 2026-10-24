@@ -142,10 +142,10 @@
     .tech-bike .bike-spoke{stroke:#526b7d;stroke-width:1.4}
     .tech-bike .bike-glow{fill:#47f5d0;opacity:.08}
     .tech-points{position:absolute;z-index:3;inset:0;pointer-events:none}
-    .tech-point{position:absolute;pointer-events:auto;transform:translate(-50%,-50%);width:36px;height:36px;padding:0;border:1px solid rgba(71,245,208,.8);border-radius:50%;background:rgba(8,13,23,.82);color:#47f5d0;display:grid;place-items:center;font:800 .7rem/1 inherit;cursor:pointer;box-shadow:0 0 0 5px rgba(71,245,208,.08),0 0 22px rgba(71,245,208,.24);transition:background .2s,transform .2s,box-shadow .2s}
-    .tech-point::before{content:"";position:absolute;inset:-6px;border:1px solid rgba(71,245,208,.2);border-radius:50%;animation:techPulse 2.4s ease-out infinite}
-    .tech-point:hover,.tech-point[aria-pressed="true"]{background:#47f5d0;color:#06130f;transform:translate(-50%,-50%) scale(1.1);box-shadow:0 0 0 6px rgba(71,245,208,.12),0 0 28px rgba(71,245,208,.42)}
-    .tech-point[aria-pressed="true"]::before{animation:none;border-color:#47f5d0}
+    .tech-point{position:absolute;pointer-events:auto;transform:translate(-50%,-50%);width:36px;height:36px;padding:0;border:1px solid rgba(235,244,250,.9);border-radius:50%;background:rgba(10,17,29,.88);color:#f4f7fb;display:grid;place-items:center;font:800 .7rem/1 inherit;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.32),0 0 0 3px rgba(235,244,250,.14);transition:background .2s,transform .2s,box-shadow .2s}
+    .tech-point::before{content:"";position:absolute;inset:-5px;border:1px solid rgba(235,244,250,.42);border-radius:50%;pointer-events:none}
+    .tech-point:hover,.tech-point[aria-pressed="true"]{background:#eaf4f5;color:#10202b;border-color:#fff;transform:translate(-50%,-50%) scale(1.08);box-shadow:0 3px 16px rgba(0,0,0,.4),0 0 0 4px rgba(234,244,245,.22)}
+    .tech-point[aria-pressed="true"]::before{border-color:rgba(234,244,245,.8)}
     .tech-point:focus-visible{outline:3px solid white;outline-offset:4px}
     @keyframes techPulse{0%{transform:scale(.78);opacity:.9}100%{transform:scale(1.65);opacity:0}}
     .tech-label{position:absolute;z-index:2;left:18px;bottom:16px;color:#8fa7b9;font-size:.67rem;letter-spacing:.12em;font-weight:800}
