@@ -3,7 +3,7 @@ const SYSTEM_PROMPT = `Sos el asistente de admisión técnica de Rider Service, 
 
 Respondé SIEMPRE en español rioplatense, cordial, claro y breve. Mantené la conversación estrictamente dentro de la solicitud de reparación. Si la persona se desvía a otro tema, decí brevemente que podés ayudar con la solicitud de Rider Service y retomá la última pregunta pendiente. No sigas temas ajenos.
 
-Hacé UNA sola pregunta concreta por turno. No repitas preguntas ya respondidas. Reuní, de forma gradual: (1) tipo de vehículo, (2) marca y modelo, (3) año aproximado si lo sabe, (4) problema principal y cuándo comenzó, (5) síntomas concretos y cuándo ocurre, (6) antecedentes relevantes como golpe, agua, modificación o reparación previa, (7) zona/localidad para coordinar, y (8) nombre y contacto solo si la persona acepta compartirlos. No exijas datos que no conozca; anotá "no informado".
+Hacé UNA sola pregunta concreta por turno. No repitas preguntas ya respondidas. Antes de cada pregunta, revisá todos los mensajes disponibles de la conversación y aprovechá los datos que el cliente ya aportó, aunque aparezcan varios turnos atrás. Reuní, de forma gradual: (1) tipo de vehículo, (2) marca y modelo, (3) año aproximado si lo sabe, (4) problema principal y cuándo comenzó, (5) síntomas concretos y cuándo ocurre, (6) antecedentes relevantes como golpe, agua, modificación o reparación previa, (7) zona/localidad para coordinar, y (8) nombre y contacto solo si la persona acepta compartirlos. No exijas datos que no conozca; anotá "no informado".
 
 Hacé preguntas adicionales solo si son relevantes para comprender la falla. No instruyas a abrir baterías, manipular alta corriente ni realizar pruebas peligrosas. Si menciona batería hinchada, humo, olor a quemado, chispas o calentamiento severo, recomendá dejar de usar/cargar el vehículo y solicitar revisión profesional.
 
@@ -39,13 +39,13 @@ export default {
       const origin=request.headers.get("Origin");
       if(origin && origin!==url.origin) return json({error:"Origen no permitido."},403);
       const length=Number(request.headers.get("Content-Length")||0);
-      if(length>16000) return json({error:"La conversación es demasiado larga. Iniciá una nueva solicitud."},413);
+      if(length>32000) return json({error:"La conversación es demasiado larga. Iniciá una nueva solicitud."},413);
       let body;
       try{body=await request.json();}catch{return json({error:"Solicitud inválida."},400);}
       if(!Array.isArray(body.messages)||body.messages.length<1) return json({error:"Escribí una respuesta para continuar."},400);
-      const messages=body.messages.slice(-14).filter(m=>m&&["user","assistant"].includes(m.role)&&typeof m.content==="string").map(m=>({role:m.role,content:m.content.slice(0,1200)}));
+      const messages=body.messages.slice(-24).filter(m=>m&&["user","assistant"].includes(m.role)&&typeof m.content==="string").map(m=>({role:m.role,content:m.content.slice(0,1200)}));
       if(!messages.length||messages[messages.length-1].role!=="user") return json({error:"No se pudo leer tu respuesta."},400);
-      if(messages.reduce((n,m)=>n+m.content.length,0)>10000) return json({error:"La conversación es demasiado larga. Iniciá una nueva solicitud."},413);
+      if(messages.reduce((n,m)=>n+m.content.length,0)>22000) return json({error:"La conversación es demasiado larga. Iniciá una nueva solicitud."},413);
       if(!env.AI){ console.error("RIDER_AI_BINDING_MISSING: env.AI no está disponible en esta versión del Worker"); return json({error:"El asistente no está disponible en este momento. Probá nuevamente más tarde."},503); }
       try{
         const result=await env.AI.run(MODEL,{messages:[{role:"system",content:SYSTEM_PROMPT},...messages],max_tokens:420,temperature:0.2,response_format:{type:"json_object"}});
