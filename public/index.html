@@ -165,6 +165,41 @@
     @media(max-width:560px){.tech-visual{border-radius:16px}.tech-visual-top{left:12px;right:12px;top:12px;font-size:.55rem}.tech-bike{margin-top:28px}.tech-point{width:30px;height:30px;font-size:.62rem}.tech-label{left:12px;bottom:10px;font-size:.55rem}.tech-info{border-radius:16px;padding:21px}.tech-selector button{padding:8px 10px;font-size:.7rem}}
     @media(prefers-reduced-motion:reduce){.tech-point::before{animation:none}.tech-point,.tech-selector button{transition:none}}
 
+  
+    /* RIDER_AI_BUDGET_ASSISTANT_V1 */
+    .assistant-launch{cursor:pointer;font:900 1.45rem/1 inherit;display:grid;place-items:center}
+    .assistant-launch:focus-visible,.assistant-send:focus-visible,.assistant-close:focus-visible{outline:3px solid #fff;outline-offset:4px}
+    .assistant-panel{position:fixed;z-index:80;right:20px;bottom:153px;width:min(410px,calc(100vw - 28px));height:min(620px,calc(100dvh - 190px));min-height:360px;display:none;grid-template-rows:auto 1fr auto;background:#0c1421;border:1px solid rgba(71,245,208,.42);border-radius:20px;overflow:hidden;box-shadow:0 24px 90px rgba(0,0,0,.55),0 0 38px rgba(71,245,208,.09)}
+    .assistant-panel.is-open{display:grid;animation:assistantEnter .2s ease-out}
+    @keyframes assistantEnter{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .assistant-head{padding:16px 17px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(120deg,#132b38,#101b2a);border-bottom:1px solid var(--line)}
+    .assistant-brand{display:flex;align-items:center;gap:11px;min-width:0}
+    .assistant-mark{width:38px;height:38px;flex:0 0 auto;display:grid;place-items:center;border:1px solid rgba(71,245,208,.42);border-radius:12px;color:var(--mint);font-size:1.25rem}
+    .assistant-head strong{display:block;font-size:.93rem;letter-spacing:.01em}
+    .assistant-head small{display:block;color:#9bb1bf;font-size:.73rem;margin-top:2px}
+    .assistant-close{border:1px solid var(--line);background:#0b1420;color:#dbe8ef;border-radius:9px;width:35px;height:35px;font-size:1.2rem;cursor:pointer}
+    .assistant-feed{padding:16px;overflow:auto;display:flex;flex-direction:column;gap:12px;overscroll-behavior:contain}
+    .assistant-msg{max-width:91%;padding:11px 13px;border:1px solid rgba(161,194,215,.13);border-radius:14px;background:#142233;color:#e8f1f7;font-size:.89rem;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+    .assistant-msg.bot{align-self:flex-start;border-top-left-radius:5px}
+    .assistant-msg.user{align-self:flex-end;background:rgba(71,245,208,.1);border-color:rgba(71,245,208,.24);border-top-right-radius:5px}
+    .assistant-msg.notice{font-size:.76rem;color:#91a7b6;background:transparent;border:0;padding:0;max-width:100%}
+    .assistant-typing{color:#9bb1bf;font-size:.8rem;padding:2px 4px}
+    .assistant-compose{padding:12px;border-top:1px solid var(--line);background:#0b121e}
+    .assistant-form{display:flex;align-items:flex-end;gap:8px}
+    .assistant-input{resize:none;min-height:44px;max-height:110px;flex:1;width:100%;padding:11px 12px;border-radius:12px;border:1px solid rgba(161,194,215,.22);background:#101b2a;color:var(--text);font:inherit;font-size:.88rem;outline:none}
+    .assistant-input:focus{border-color:rgba(71,245,208,.65)}
+    .assistant-input::placeholder{color:#8193a3}
+    .assistant-send{height:44px;min-width:46px;border:0;border-radius:12px;background:var(--mint);color:#06130f;font-size:1.1rem;font-weight:900;cursor:pointer}
+    .assistant-send:disabled,.assistant-input:disabled{opacity:.55;cursor:wait}
+    .assistant-privacy{margin:8px 2px 0;color:#71899b;font-size:.68rem;line-height:1.4}
+    .assistant-summary{padding:12px;border:1px solid rgba(71,245,208,.28);border-radius:12px;background:rgba(71,245,208,.055);white-space:pre-wrap;font-size:.82rem;line-height:1.5}
+    .assistant-summary-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .assistant-summary-actions a,.assistant-summary-actions button{border-radius:9px;padding:9px 11px;font:800 .78rem/1.2 inherit;cursor:pointer}
+    .assistant-summary-actions a{background:var(--mint);color:#06130f}
+    .assistant-summary-actions button{border:1px solid rgba(71,245,208,.4);background:transparent;color:var(--mint)}
+    @media(max-width:560px){.assistant-panel{right:10px;bottom:145px;width:calc(100vw - 20px);height:min(590px,calc(100dvh - 170px));min-height:330px;border-radius:17px}.assistant-head{padding:13px}.assistant-feed{padding:13px}.wa-float{bottom:82px}}
+    @media(prefers-reduced-motion:reduce){.assistant-panel.is-open{animation:none}}
+
   </style>
 </head>
 <body>
@@ -341,7 +376,25 @@
       <div>© <span id="year"></span> Rider Service · Pilar, Zona Norte<br><a href="https://vanguard-web-studio-1wm.pages.dev/" target="_blank" rel="noopener noreferrer" style="font-size:.72rem;opacity:.72">Sitio creado por Vanguard Web Studio ↗</a></div>
     </div>
   </footer>
-  <a class="wa-float wa-link" href="#contacto" aria-label="Contactar por WhatsApp" title="Contactar por WhatsApp">↗</a>
+  <button class="wa-float assistant-launch" type="button" aria-label="Abrir asistente de presupuestos" title="Asistente de presupuestos" aria-expanded="false">✦</button>
+
+  <section class="assistant-panel" id="rider-assistant" role="dialog" aria-modal="false" aria-labelledby="assistant-title" aria-hidden="true">
+    <div class="assistant-head">
+      <div class="assistant-brand"><span class="assistant-mark">ϟ</span><div><strong id="assistant-title">Asistente Rider Service</strong><small>Solicitud de presupuesto · paso a paso</small></div></div>
+      <button class="assistant-close" type="button" aria-label="Cerrar asistente">×</button>
+    </div>
+    <div class="assistant-feed" id="assistant-feed" role="log" aria-live="polite" aria-relevant="additions text">
+      <div class="assistant-msg bot">¡Hola! Te ayudo a preparar una solicitud de presupuesto. Primero, ¿qué vehículo necesitás revisar: moto eléctrica, scooter, bicicleta eléctrica u otro?</div>
+    </div>
+    <div class="assistant-compose">
+      <form class="assistant-form" id="assistant-form">
+        <textarea class="assistant-input" id="assistant-input" rows="1" maxlength="1200" placeholder="Contame sobre tu vehículo…" aria-label="Tu respuesta" required></textarea>
+        <button class="assistant-send" id="assistant-send" type="submit" aria-label="Enviar respuesta">↑</button>
+      </form>
+      <div class="assistant-privacy">La información se usa para preparar este resumen. No se guarda en una base de datos del sitio. El presupuesto definitivo lo confirma el taller.</div>
+    </div>
+  </section>
+
   <script>
     // Antes de publicar, reemplazá el número de ejemplo por tu WhatsApp con código de país, sin +, espacios ni guiones.
     const WHATSAPP_NUMBER = "5491134363898";
@@ -415,6 +468,125 @@
       window.addEventListener("resize", requestParallax, {passive:true});
       requestParallax();
     }
+
+
+    // RIDER_AI_BUDGET_ASSISTANT_V1
+    const assistantPanel = document.getElementById("rider-assistant");
+    const assistantLaunch = document.querySelector(".assistant-launch");
+    const assistantClose = document.querySelector(".assistant-close");
+    const assistantFeed = document.getElementById("assistant-feed");
+    const assistantForm = document.getElementById("assistant-form");
+    const assistantInput = document.getElementById("assistant-input");
+    const assistantSend = document.getElementById("assistant-send");
+    let assistantHistory = [];
+    let assistantFinished = false;
+    let assistantSummary = "";
+    const assistantWelcome = "¡Hola! Te ayudo a preparar una solicitud de presupuesto. Primero, ¿qué vehículo necesitás revisar: moto eléctrica, scooter, bicicleta eléctrica u otro?";
+    function assistantOpen() {
+      assistantPanel.classList.add("is-open");
+      assistantPanel.setAttribute("aria-hidden","false");
+      assistantLaunch.setAttribute("aria-expanded","true");
+      assistantInput.focus();
+    }
+    function assistantHide() {
+      assistantPanel.classList.remove("is-open");
+      assistantPanel.setAttribute("aria-hidden","true");
+      assistantLaunch.setAttribute("aria-expanded","false");
+      assistantLaunch.focus();
+    }
+    assistantLaunch.addEventListener("click", () => assistantPanel.classList.contains("is-open") ? assistantHide() : assistantOpen());
+    assistantClose.addEventListener("click", assistantHide);
+    document.addEventListener("keydown", event => { if (event.key === "Escape" && assistantPanel.classList.contains("is-open")) assistantHide(); });
+    function assistantAddMessage(text, role) {
+      const node = document.createElement("div");
+      node.className = "assistant-msg " + role;
+      node.textContent = text;
+      assistantFeed.appendChild(node);
+      assistantFeed.scrollTop = assistantFeed.scrollHeight;
+      return node;
+    }
+    function assistantSetBusy(busy) {
+      assistantInput.disabled = busy || assistantFinished;
+      assistantSend.disabled = busy || assistantFinished;
+      assistantSend.textContent = busy ? "…" : "↑";
+    }
+    function assistantReset() {
+      assistantHistory = [];
+      assistantFinished = false;
+      assistantSummary = "";
+      assistantFeed.replaceChildren();
+      assistantAddMessage(assistantWelcome,"bot");
+      assistantSetBusy(false);
+      assistantInput.placeholder = "Contame sobre tu vehículo…";
+      assistantInput.focus();
+    }
+    function assistantShowSummary(summary) {
+      assistantFinished = true;
+      assistantSummary = summary || "Solicitud de presupuesto para Rider Service. Revisar la conversación y confirmar los datos con el cliente.";
+      const card = document.createElement("div");
+      card.className = "assistant-summary";
+      card.textContent = assistantSummary;
+      assistantFeed.appendChild(card);
+      const actions = document.createElement("div");
+      actions.className = "assistant-summary-actions";
+      const send = document.createElement("a");
+      send.textContent = "Enviar resumen por WhatsApp ↗";
+      send.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent("Hola Rider Service, quiero solicitar un presupuesto.\n\n" + assistantSummary);
+      send.target = "_blank";
+      send.rel = "noopener noreferrer";
+      actions.appendChild(send);
+      const again = document.createElement("button");
+      again.type = "button";
+      again.textContent = "Nueva solicitud";
+      again.addEventListener("click", assistantReset);
+      actions.appendChild(again);
+      assistantFeed.appendChild(actions);
+      assistantFeed.scrollTop = assistantFeed.scrollHeight;
+      assistantSetBusy(false);
+      assistantInput.placeholder = "Solicitud lista";
+    }
+    assistantForm.addEventListener("submit", async event => {
+      event.preventDefault();
+      const message = assistantInput.value.trim();
+      if (!message || assistantFinished || assistantSend.disabled) return;
+      assistantAddMessage(message,"user");
+      assistantHistory.push({role:"user",content:message});
+      assistantInput.value = "";
+      assistantSetBusy(true);
+      const typing = assistantAddMessage("Revisando la información…","notice");
+      try {
+        const response = await fetch("/api/chat", {
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({messages:assistantHistory.slice(-14)})
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || "No se pudo consultar al asistente.");
+        typing.remove();
+        if (data.message) {
+          assistantAddMessage(data.message,"bot");
+          assistantHistory.push({role:"assistant",content:data.message});
+        }
+        if (data.finished) assistantShowSummary(data.summary || data.message);
+      } catch (error) {
+        typing.remove();
+        assistantAddMessage("Ahora no pude conectar con el asistente. Probá de nuevo en unos segundos. Tu mensaje no se perdió de esta ventana.","bot");
+        assistantHistory.pop();
+      } finally {
+        if (!assistantFinished) assistantSetBusy(false);
+        assistantInput.focus();
+      }
+    });
+    assistantInput.addEventListener("keydown", event => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        assistantForm.requestSubmit();
+      }
+    });
+    assistantInput.addEventListener("input", () => {
+      assistantInput.style.height = "auto";
+      assistantInput.style.height = Math.min(110,assistantInput.scrollHeight) + "px";
+    });
 
     document.querySelectorAll(".wa-link").forEach(link => {
       if (WHATSAPP_NUMBER !== "5490000000000") {
