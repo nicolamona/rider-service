@@ -14,11 +14,20 @@ Devolvé SOLAMENTE un objeto JSON válido, sin markdown ni texto adicional, con 
 Al finalizar, finished=true y summary debe contener un resumen profesional en español con: vehículo, marca/modelo/año (si se informaron), problema, cuándo empezó, síntomas, antecedentes, localidad, contacto consentido, datos faltantes y una nota "Presupuesto pendiente de evaluación técnica; no es un precio confirmado". En el último turno, message debe confirmar que la solicitud quedó preparada y que puede enviar el resumen por WhatsApp. Si todavía falta información importante, finished=false y summary="" y message debe hacer una sola pregunta concreta.`;
 function json(data,status=200){return new Response(JSON.stringify(data),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store"}});}
 function parseModelOutput(output){
+  if(output && typeof output==="object"){
+    if(typeof output.message==="string") return output;
+    for(const key of ["response","output_text","text","content"]){
+      if(typeof output[key]==="string"){const parsed=parseModelOutput(output[key]);if(parsed)return parsed;}
+    }
+    return null;
+  }
   if(typeof output!=="string") return null;
   const cleaned=output.replace(/^```(?:json)?\s*/i,"").replace(/\s*```$/,"").trim();
   try{return JSON.parse(cleaned);}catch{}
   const start=cleaned.indexOf("{"),end=cleaned.lastIndexOf("}");
   if(start>=0&&end>start){try{return JSON.parse(cleaned.slice(start,end+1));}catch{}}
+  // Si el modelo devuelve texto normal, permitir que la conversación continúe.
+  if(cleaned && !cleaned.startsWith("{")) return {message:cleaned,finished:false,summary:""};
   return null;
 }
 export default {
