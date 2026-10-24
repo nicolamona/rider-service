@@ -132,7 +132,7 @@
     .tech-visual{position:relative;min-width:0;overflow:hidden;border:1px solid rgba(71,245,208,.25);border-radius:22px;background:linear-gradient(145deg,#101c2a,#080e18);isolation:isolate}
     .tech-visual::before{content:"";position:absolute;inset:0;opacity:.38;background-image:linear-gradient(rgba(71,245,208,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(71,245,208,.07) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(180deg,black,transparent)}
     .tech-visual-top{position:absolute;z-index:2;left:18px;right:18px;top:16px;display:flex;justify-content:space-between;gap:12px;color:#91a8b8;font-size:.66rem;font-weight:800;letter-spacing:.13em}
-    .tech-bike{display:block;width:100%;height:auto;position:relative;z-index:1;margin-top:30px}
+    .tech-bike{display:block;width:100%;height:auto;position:relative;z-index:1;margin-top:30px}.tech-bike-photo{display:block;position:relative;z-index:1;width:100%;height:auto;margin-top:28px;filter:saturate(.86) contrast(1.04)}
     .tech-bike .bike-frame{fill:none;stroke:#a7bdc8;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
     .tech-bike .bike-dark{fill:#14283a;stroke:#47f5d0;stroke-width:2.5;stroke-linejoin:round}
     .tech-bike .bike-metal{fill:#1b3041;stroke:#91a8b8;stroke-width:2.5}
@@ -250,64 +250,15 @@
         </div>
         <div class="tech-shell">
           <div class="tech-visual">
-            <div class="tech-visual-top"><span>RIDER / TECH SCAN</span><span>MODELO ESQUEMÁTICO · 06 SISTEMAS</span></div>
-            <svg class="tech-bike" viewBox="0 0 760 440" role="img" aria-label="Ilustración esquemática lateral de una moto eléctrica con sus principales componentes">
-              <defs>
-                <linearGradient id="techBody" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#28465a"/><stop offset="1" stop-color="#101b2a"/></linearGradient>
-                <linearGradient id="techBattery" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#47f5d0" stop-opacity=".28"/><stop offset="1" stop-color="#47f5d0" stop-opacity=".04"/></linearGradient>
-              </defs>
-              <ellipse class="bike-glow" cx="382" cy="330" rx="300" ry="56"/>
-              <path d="M48 365H712" stroke="#294051" stroke-width="1.5" stroke-dasharray="5 9"/>
-              <g transform="translate(0 0)">
-                <circle class="bike-tire" cx="180" cy="302" r="77"/><circle class="bike-hub" cx="180" cy="302" r="22"/>
-                <circle class="bike-tire" cx="582" cy="302" r="77"/><circle class="bike-hub" cx="582" cy="302" r="22"/>
-                <g class="bike-spoke">
-                  <path d="M180 230V374M108 302H252M129 251L231 353M129 353L231 251"/>
-                  <path d="M582 230V374M510 302H654M531 251L633 353M531 353L633 251"/>
-                </g>
-                <circle cx="180" cy="302" r="39" fill="none" stroke="#47f5d0" stroke-width="2" stroke-dasharray="3 7"/>
-                <circle cx="582" cy="302" r="39" fill="none" stroke="#47f5d0" stroke-width="2" stroke-dasharray="3 7"/>
-                <path class="bike-frame" d="M180 302L282 204L405 302L330 302L282 204L370 178L458 201L582 302"/>
-                <path d="M180 302L225 220L252 224" fill="none" stroke="#d2e0e8" stroke-width="10" stroke-linecap="round"/>
-                <path d="M220 214L245 212L260 222L250 233L225 231Z" fill="#132638" stroke="#91a8b8" stroke-width="2"/>
-                <path d="M226 210L218 186L248 180L258 207" fill="none" stroke="#91a8b8" stroke-width="8" stroke-linecap="round"/>
-                <path d="M210 183L245 174L270 181" fill="none" stroke="#d6e5eb" stroke-width="7" stroke-linecap="round"/>
-                <path d="M448 198L472 166L505 166" fill="none" stroke="#9db4c2" stroke-width="8" stroke-linecap="round"/>
-                <path d="M493 163L521 159L530 166L523 173L496 172" fill="#14283a" stroke="#91a8b8" stroke-width="2"/>
-                <path d="M462 200L490 215L477 235L455 221Z" fill="#101b2a" stroke="#47f5d0" stroke-width="2"/>
-                <path d="M278 203L300 174L375 170L421 187L405 211L333 222Z" fill="url(#techBody)" stroke="#47f5d0" stroke-width="2.5"/>
-                <path d="M295 173L323 151L397 151L426 177L376 190L317 188Z" fill="#172c3e" stroke="#91a8b8" stroke-width="2"/>
-                <path d="M322 151L345 139L391 139L402 151" fill="none" stroke="#c5d5de" stroke-width="4" stroke-linecap="round"/>
-                <path d="M315 194L365 194L394 235L360 270L306 247L289 218Z" fill="url(#techBattery)" stroke="#47f5d0" stroke-width="2.5"/>
-                <path d="M325 208L366 208M322 220L371 220M328 232L363 232" stroke="#47f5d0" stroke-width="2" opacity=".7"/>
-                <path d="M405 302L449 230L476 230L506 292L469 302L445 262L422 302Z" fill="#14283a" stroke="#91a8b8" stroke-width="2.5"/>
-                <circle cx="453" cy="279" r="25" fill="#0a131e" stroke="#91a8b8" stroke-width="4"/>
-                <circle cx="453" cy="279" r="11" fill="#18374a" stroke="#47f5d0" stroke-width="2"/>
-                <path d="M431 211L455 211L468 227L451 245L430 239Z" fill="#172c3e" stroke="#47f5d0" stroke-width="2"/>
-                <path d="M259 218L283 203M455 202L472 199" stroke="#dce8ed" stroke-width="5" stroke-linecap="round"/>
-                <path d="M265 244L295 252L316 269" fill="none" stroke="#6d8595" stroke-width="7" stroke-linecap="round"/>
-                <path d="M281 254L301 262L318 280" fill="none" stroke="#47f5d0" stroke-width="2" stroke-dasharray="4 4"/>
-                <path d="M240 239L257 247M246 234L263 242" stroke="#47f5d0" stroke-width="3" stroke-linecap="round"/>
-                <path d="M475 225L505 213L526 217L536 229L516 239L487 237Z" fill="#14283a" stroke="#91a8b8" stroke-width="2"/>
-                <path d="M513 238L539 250L550 275" fill="none" stroke="#7f98a8" stroke-width="7" stroke-linecap="round"/>
-                <path d="M508 244L529 258L541 279" fill="none" stroke="#47f5d0" stroke-width="2" stroke-dasharray="4 4"/>
-                <path d="M345 276L356 285L376 285" fill="none" stroke="#91a8b8" stroke-width="6" stroke-linecap="round"/>
-                <path d="M320 291L339 291" stroke="#47f5d0" stroke-width="4" stroke-linecap="round"/>
-                <path d="M375 178L391 167L416 169" fill="none" stroke="#91a8b8" stroke-width="5" stroke-linecap="round"/>
-                <path d="M412 168L430 169" stroke="#47f5d0" stroke-width="3" stroke-linecap="round"/>
-                <path d="M155 255L164 247L174 255L170 269L158 270Z" fill="#c3d8e1" stroke="#47f5d0" stroke-width="2"/>
-                <path d="M557 253L566 246L577 254L573 268L560 269Z" fill="#c3d8e1" stroke="#47f5d0" stroke-width="2"/>
-                <path d="M250 318L274 318M490 318L513 318" stroke="#47f5d0" stroke-width="3" stroke-linecap="round"/>
-                <text x="380" y="407" fill="#6d8798" font-size="11" text-anchor="middle" letter-spacing="4">ELECTRIC MOBILITY / SYSTEM MAP</text>
-              </g>
-            </svg>
+            <div class="tech-visual-top"><span>RIDER / TECH SCAN</span><span>REFERENCIA VISUAL · 06 SISTEMAS</span></div>
+            <img class="tech-bike-photo" src="https://static.wixstatic.com/media/b00374_023e9b5937294060a538a6fbf50adbbe~mv2.jpg/v1/fill/w_1000%2Ch_750%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01/b00374_023e9b5937294060a538a6fbf50adbbe~mv2.jpg" alt="Moto eléctrica deportiva negra y plateada, vista lateral en un estudio oscuro" loading="lazy">
             <div class="tech-points" aria-label="Puntos interactivos de la moto">
-              <button class="tech-point" style="left:47.5%;top:49%" data-tech="bateria" aria-label="Explorar batería y alimentación" aria-pressed="true">01</button>
-              <button class="tech-point" style="left:59.5%;top:59%" data-tech="motor" aria-label="Explorar motor eléctrico" aria-pressed="false">02</button>
-              <button class="tech-point" style="left:24%;top:68%" data-tech="frenos" aria-label="Explorar frenos" aria-pressed="false">03</button>
-              <button class="tech-point" style="left:76.5%;top:68%" data-tech="ruedas" aria-label="Explorar ruedas y neumáticos" aria-pressed="false">04</button>
-              <button class="tech-point" style="left:55%;top:42%" data-tech="controlador" aria-label="Explorar controlador y cableado" aria-pressed="false">05</button>
-              <button class="tech-point" style="left:34%;top:42%" data-tech="suspension" aria-label="Explorar suspensión y dirección" aria-pressed="false">06</button>
+              <button class="tech-point" style="left:57%;top:49%" data-tech="bateria" aria-label="Explorar batería y alimentación" aria-pressed="true">01</button>
+              <button class="tech-point" style="left:67%;top:59%" data-tech="motor" aria-label="Explorar motor eléctrico" aria-pressed="false">02</button>
+              <button class="tech-point" style="left:30%;top:68%" data-tech="frenos" aria-label="Explorar frenos" aria-pressed="false">03</button>
+              <button class="tech-point" style="left:80%;top:68%" data-tech="ruedas" aria-label="Explorar ruedas y neumáticos" aria-pressed="false">04</button>
+              <button class="tech-point" style="left:61%;top:46%" data-tech="controlador" aria-label="Explorar controlador y cableado" aria-pressed="false">05</button>
+              <button class="tech-point" style="left:45%;top:48%" data-tech="suspension" aria-label="Explorar suspensión y dirección" aria-pressed="false">06</button>
             </div>
             <div class="tech-label">TOCÁ UN PUNTO PARA EXPLORAR ↗</div>
           </div>
