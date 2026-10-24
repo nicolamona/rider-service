@@ -123,6 +123,48 @@
 
     @media(max-width:850px){.navlinks{gap:14px}.navlinks a:not(.btn){display:none}.hero-grid,.about-grid{grid-template-columns:1fr;gap:32px}.hero{padding-top:60px}.hero-art,.hero-art img{min-height:340px}.service-grid{grid-template-columns:repeat(2,1fr)}.contact-box{align-items:flex-start;flex-direction:column}.about-photo,.about-photo img{min-height:320px}}
     @media(max-width:560px){.wrap{width:min(var(--max),calc(100% - 30px))}.nav{min-height:68px}.navlinks{gap:8px}.navlinks .btn{padding:10px 11px;font-size:.78rem}.brand{font-size:.88rem}.brand-mark{width:38px;height:38px}.hero{padding:48px 0}.hero-grid{gap:28px}h1{font-size:clamp(2.65rem,13vw,4rem)}.hero-copy{font-size:1rem}.hero-art,.hero-art img{min-height:290px}.stats-grid{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line);padding:16px}.stat:last-child{border-bottom:0}section{padding:65px 0}.service-grid,.steps{grid-template-columns:1fr}.service{min-height:0}.service-grid{gap:12px}.service{padding:21px}.contact{padding:58px 0}.wa-float{right:14px;bottom:82px;width:53px;height:53px}}
+
+    /* RIDER_TECH_SCAN_INTERACTIVE_V1 */
+    .tech-scan{position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 25%,rgba(27,107,112,.18),transparent 48%),#080d17}
+    .tech-scan .section-head{max-width:760px}
+    .tech-scan .section-head p{max-width:660px}
+    .tech-shell{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:18px;align-items:stretch}
+    .tech-visual{position:relative;min-width:0;overflow:hidden;border:1px solid rgba(71,245,208,.25);border-radius:22px;background:linear-gradient(145deg,#101c2a,#080e18);isolation:isolate}
+    .tech-visual::before{content:"";position:absolute;inset:0;opacity:.38;background-image:linear-gradient(rgba(71,245,208,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(71,245,208,.07) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(180deg,black,transparent)}
+    .tech-visual-top{position:absolute;z-index:2;left:18px;right:18px;top:16px;display:flex;justify-content:space-between;gap:12px;color:#91a8b8;font-size:.66rem;font-weight:800;letter-spacing:.13em}
+    .tech-bike{display:block;width:100%;height:auto;position:relative;z-index:1;margin-top:30px}
+    .tech-bike .bike-frame{fill:none;stroke:#a7bdc8;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
+    .tech-bike .bike-dark{fill:#14283a;stroke:#47f5d0;stroke-width:2.5;stroke-linejoin:round}
+    .tech-bike .bike-metal{fill:#1b3041;stroke:#91a8b8;stroke-width:2.5}
+    .tech-bike .bike-detail{fill:none;stroke:#47f5d0;stroke-width:2;stroke-linecap:round}
+    .tech-bike .bike-tire{fill:#080d17;stroke:#8ba1af;stroke-width:7}
+    .tech-bike .bike-hub{fill:#122333;stroke:#47f5d0;stroke-width:3}
+    .tech-bike .bike-spoke{stroke:#526b7d;stroke-width:1.4}
+    .tech-bike .bike-glow{fill:#47f5d0;opacity:.08}
+    .tech-points{position:absolute;z-index:3;inset:0;pointer-events:none}
+    .tech-point{position:absolute;pointer-events:auto;transform:translate(-50%,-50%);width:36px;height:36px;padding:0;border:1px solid rgba(71,245,208,.8);border-radius:50%;background:rgba(8,13,23,.82);color:#47f5d0;display:grid;place-items:center;font:800 .7rem/1 inherit;cursor:pointer;box-shadow:0 0 0 5px rgba(71,245,208,.08),0 0 22px rgba(71,245,208,.24);transition:background .2s,transform .2s,box-shadow .2s}
+    .tech-point::before{content:"";position:absolute;inset:-6px;border:1px solid rgba(71,245,208,.2);border-radius:50%;animation:techPulse 2.4s ease-out infinite}
+    .tech-point:hover,.tech-point[aria-pressed="true"]{background:#47f5d0;color:#06130f;transform:translate(-50%,-50%) scale(1.1);box-shadow:0 0 0 6px rgba(71,245,208,.12),0 0 28px rgba(71,245,208,.42)}
+    .tech-point[aria-pressed="true"]::before{animation:none;border-color:#47f5d0}
+    .tech-point:focus-visible{outline:3px solid white;outline-offset:4px}
+    @keyframes techPulse{0%{transform:scale(.78);opacity:.9}100%{transform:scale(1.65);opacity:0}}
+    .tech-label{position:absolute;z-index:2;left:18px;bottom:16px;color:#8fa7b9;font-size:.67rem;letter-spacing:.12em;font-weight:800}
+    .tech-info{border:1px solid rgba(71,245,208,.22);border-radius:22px;padding:clamp(20px,3vw,30px);background:linear-gradient(150deg,rgba(17,32,48,.96),rgba(9,15,25,.98));display:flex;flex-direction:column;min-height:100%}
+    .tech-index{color:#47f5d0;font-size:.72rem;letter-spacing:.16em;font-weight:900}
+    .tech-info h3{font-size:clamp(1.45rem,2.6vw,2rem);line-height:1.1;letter-spacing:-.035em;margin:14px 0}
+    .tech-info p{color:#a8b7c8;font-size:.93rem}
+    .tech-check-title{margin:10px 0 12px;font-size:.72rem;letter-spacing:.12em;color:#47f5d0;font-weight:900}
+    .tech-checks{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+    .tech-checks li{display:flex;gap:10px;color:#d9e5ed;font-size:.88rem;align-items:flex-start}
+    .tech-checks li::before{content:"+";color:#47f5d0;font-weight:900}
+    .tech-foot{margin-top:auto;padding-top:22px;color:#71899b;font-size:.74rem}
+    .tech-selector{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+    .tech-selector button{border:1px solid rgba(161,194,215,.2);border-radius:999px;background:#0c1421;color:#a8b7c8;padding:9px 12px;font:700 .76rem/1.2 inherit;cursor:pointer;transition:border-color .2s,color .2s,background .2s}
+    .tech-selector button:hover,.tech-selector button[aria-pressed="true"]{border-color:#47f5d0;color:#47f5d0;background:rgba(71,245,208,.07)}
+    @media(max-width:850px){.tech-shell{grid-template-columns:1fr}.tech-info{min-height:0}.tech-visual{max-width:700px;width:100%;margin:auto}.tech-point{width:34px;height:34px}.tech-info h3{font-size:1.7rem}}
+    @media(max-width:560px){.tech-visual{border-radius:16px}.tech-visual-top{left:12px;right:12px;top:12px;font-size:.55rem}.tech-bike{margin-top:28px}.tech-point{width:30px;height:30px;font-size:.62rem}.tech-label{left:12px;bottom:10px;font-size:.55rem}.tech-info{border-radius:16px;padding:21px}.tech-selector button{padding:8px 10px;font-size:.7rem}}
+    @media(prefers-reduced-motion:reduce){.tech-point::before{animation:none}.tech-point,.tech-selector button{transition:none}}
+
   </style>
 </head>
 <body>
@@ -194,6 +236,99 @@
           <article class="service"><div class="service-icon">⌘</div><h3>Cableado y electrónica</h3><p>Inspección de cableado, conectores y componentes electrónicos del vehículo.</p></article>
           <article class="service"><div class="service-icon">⚙</div><h3>Mantenimiento general</h3><p>Controles preventivos y revisión del funcionamiento general de la unidad.</p></article>
           <article class="service"><div class="service-icon">↗</div><h3>Motos, scooters y más</h3><p>Atención para bicicletas eléctricas, scooters, motos y otros vehículos eléctricos a consultar.</p></article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="tech-scan" id="rider-tech-scan" aria-labelledby="tech-scan-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow"><span class="dot"></span> Exploración interactiva · mantenimiento</div>
+          <h2 id="tech-scan-title">CONOCÉ TU MOTO <span style="color:var(--mint)">POR DENTRO.</span></h2>
+          <p>Seleccioná los puntos luminosos para explorar los sistemas de una moto eléctrica y descubrir qué comprobaciones forman parte de una revisión de mantenimiento.</p>
+        </div>
+        <div class="tech-shell">
+          <div class="tech-visual">
+            <div class="tech-visual-top"><span>RIDER / TECH SCAN</span><span>MODELO ESQUEMÁTICO · 06 SISTEMAS</span></div>
+            <svg class="tech-bike" viewBox="0 0 760 440" role="img" aria-label="Ilustración esquemática lateral de una moto eléctrica con sus principales componentes">
+              <defs>
+                <linearGradient id="techBody" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#28465a"/><stop offset="1" stop-color="#101b2a"/></linearGradient>
+                <linearGradient id="techBattery" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#47f5d0" stop-opacity=".28"/><stop offset="1" stop-color="#47f5d0" stop-opacity=".04"/></linearGradient>
+              </defs>
+              <ellipse class="bike-glow" cx="382" cy="330" rx="300" ry="56"/>
+              <path d="M48 365H712" stroke="#294051" stroke-width="1.5" stroke-dasharray="5 9"/>
+              <g transform="translate(0 0)">
+                <circle class="bike-tire" cx="180" cy="302" r="77"/><circle class="bike-hub" cx="180" cy="302" r="22"/>
+                <circle class="bike-tire" cx="582" cy="302" r="77"/><circle class="bike-hub" cx="582" cy="302" r="22"/>
+                <g class="bike-spoke">
+                  <path d="M180 230V374M108 302H252M129 251L231 353M129 353L231 251"/>
+                  <path d="M582 230V374M510 302H654M531 251L633 353M531 353L633 251"/>
+                </g>
+                <circle cx="180" cy="302" r="39" fill="none" stroke="#47f5d0" stroke-width="2" stroke-dasharray="3 7"/>
+                <circle cx="582" cy="302" r="39" fill="none" stroke="#47f5d0" stroke-width="2" stroke-dasharray="3 7"/>
+                <path class="bike-frame" d="M180 302L282 204L405 302L330 302L282 204L370 178L458 201L582 302"/>
+                <path d="M180 302L225 220L252 224" fill="none" stroke="#d2e0e8" stroke-width="10" stroke-linecap="round"/>
+                <path d="M220 214L245 212L260 222L250 233L225 231Z" fill="#132638" stroke="#91a8b8" stroke-width="2"/>
+                <path d="M226 210L218 186L248 180L258 207" fill="none" stroke="#91a8b8" stroke-width="8" stroke-linecap="round"/>
+                <path d="M210 183L245 174L270 181" fill="none" stroke="#d6e5eb" stroke-width="7" stroke-linecap="round"/>
+                <path d="M448 198L472 166L505 166" fill="none" stroke="#9db4c2" stroke-width="8" stroke-linecap="round"/>
+                <path d="M493 163L521 159L530 166L523 173L496 172" fill="#14283a" stroke="#91a8b8" stroke-width="2"/>
+                <path d="M462 200L490 215L477 235L455 221Z" fill="#101b2a" stroke="#47f5d0" stroke-width="2"/>
+                <path d="M278 203L300 174L375 170L421 187L405 211L333 222Z" fill="url(#techBody)" stroke="#47f5d0" stroke-width="2.5"/>
+                <path d="M295 173L323 151L397 151L426 177L376 190L317 188Z" fill="#172c3e" stroke="#91a8b8" stroke-width="2"/>
+                <path d="M322 151L345 139L391 139L402 151" fill="none" stroke="#c5d5de" stroke-width="4" stroke-linecap="round"/>
+                <path d="M315 194L365 194L394 235L360 270L306 247L289 218Z" fill="url(#techBattery)" stroke="#47f5d0" stroke-width="2.5"/>
+                <path d="M325 208L366 208M322 220L371 220M328 232L363 232" stroke="#47f5d0" stroke-width="2" opacity=".7"/>
+                <path d="M405 302L449 230L476 230L506 292L469 302L445 262L422 302Z" fill="#14283a" stroke="#91a8b8" stroke-width="2.5"/>
+                <circle cx="453" cy="279" r="25" fill="#0a131e" stroke="#91a8b8" stroke-width="4"/>
+                <circle cx="453" cy="279" r="11" fill="#18374a" stroke="#47f5d0" stroke-width="2"/>
+                <path d="M431 211L455 211L468 227L451 245L430 239Z" fill="#172c3e" stroke="#47f5d0" stroke-width="2"/>
+                <path d="M259 218L283 203M455 202L472 199" stroke="#dce8ed" stroke-width="5" stroke-linecap="round"/>
+                <path d="M265 244L295 252L316 269" fill="none" stroke="#6d8595" stroke-width="7" stroke-linecap="round"/>
+                <path d="M281 254L301 262L318 280" fill="none" stroke="#47f5d0" stroke-width="2" stroke-dasharray="4 4"/>
+                <path d="M240 239L257 247M246 234L263 242" stroke="#47f5d0" stroke-width="3" stroke-linecap="round"/>
+                <path d="M475 225L505 213L526 217L536 229L516 239L487 237Z" fill="#14283a" stroke="#91a8b8" stroke-width="2"/>
+                <path d="M513 238L539 250L550 275" fill="none" stroke="#7f98a8" stroke-width="7" stroke-linecap="round"/>
+                <path d="M508 244L529 258L541 279" fill="none" stroke="#47f5d0" stroke-width="2" stroke-dasharray="4 4"/>
+                <path d="M345 276L356 285L376 285" fill="none" stroke="#91a8b8" stroke-width="6" stroke-linecap="round"/>
+                <path d="M320 291L339 291" stroke="#47f5d0" stroke-width="4" stroke-linecap="round"/>
+                <path d="M375 178L391 167L416 169" fill="none" stroke="#91a8b8" stroke-width="5" stroke-linecap="round"/>
+                <path d="M412 168L430 169" stroke="#47f5d0" stroke-width="3" stroke-linecap="round"/>
+                <path d="M155 255L164 247L174 255L170 269L158 270Z" fill="#c3d8e1" stroke="#47f5d0" stroke-width="2"/>
+                <path d="M557 253L566 246L577 254L573 268L560 269Z" fill="#c3d8e1" stroke="#47f5d0" stroke-width="2"/>
+                <path d="M250 318L274 318M490 318L513 318" stroke="#47f5d0" stroke-width="3" stroke-linecap="round"/>
+                <text x="380" y="407" fill="#6d8798" font-size="11" text-anchor="middle" letter-spacing="4">ELECTRIC MOBILITY / SYSTEM MAP</text>
+              </g>
+            </svg>
+            <div class="tech-points" aria-label="Puntos interactivos de la moto">
+              <button class="tech-point" style="left:47.5%;top:49%" data-tech="bateria" aria-label="Explorar batería y alimentación" aria-pressed="true">01</button>
+              <button class="tech-point" style="left:59.5%;top:59%" data-tech="motor" aria-label="Explorar motor eléctrico" aria-pressed="false">02</button>
+              <button class="tech-point" style="left:24%;top:68%" data-tech="frenos" aria-label="Explorar frenos" aria-pressed="false">03</button>
+              <button class="tech-point" style="left:76.5%;top:68%" data-tech="ruedas" aria-label="Explorar ruedas y neumáticos" aria-pressed="false">04</button>
+              <button class="tech-point" style="left:55%;top:42%" data-tech="controlador" aria-label="Explorar controlador y cableado" aria-pressed="false">05</button>
+              <button class="tech-point" style="left:34%;top:42%" data-tech="suspension" aria-label="Explorar suspensión y dirección" aria-pressed="false">06</button>
+            </div>
+            <div class="tech-label">TOCÁ UN PUNTO PARA EXPLORAR ↗</div>
+          </div>
+          <article class="tech-info" aria-live="polite" aria-atomic="true">
+            <div class="tech-index" id="tech-index">SISTEMA 01 / ENERGÍA</div>
+            <h3 id="tech-name">Batería y alimentación</h3>
+            <p id="tech-desc">La batería alimenta el sistema eléctrico. Se revisan su estado y las conexiones accesibles, sin abrir el paquete de celdas como parte de una inspección rutinaria.</p>
+            <div class="tech-check-title">¿QUÉ SE REVISA?</div>
+            <ul class="tech-checks" id="tech-checks">
+              <li>Estado general y fijaciones</li><li>Conectores y cableado accesible</li><li>Funcionamiento de la carga</li><li>Señales visibles de deterioro</li>
+            </ul>
+            <div class="tech-foot">Las comprobaciones concretas dependen del modelo, las indicaciones del fabricante y el tipo de mantenimiento.</div>
+          </article>
+        </div>
+        <div class="tech-selector" aria-label="Elegir sistema de la moto">
+          <button type="button" data-tech="bateria" aria-pressed="true">01 · Batería</button>
+          <button type="button" data-tech="motor" aria-pressed="false">02 · Motor</button>
+          <button type="button" data-tech="frenos" aria-pressed="false">03 · Frenos</button>
+          <button type="button" data-tech="ruedas" aria-pressed="false">04 · Ruedas</button>
+          <button type="button" data-tech="controlador" aria-pressed="false">05 · Controlador</button>
+          <button type="button" data-tech="suspension" aria-pressed="false">06 · Suspensión</button>
         </div>
       </div>
     </section>
@@ -282,6 +417,36 @@
     } else {
       document.querySelectorAll(".reveal").forEach(el => el.classList.add("is-visible"));
     }
+
+
+    // RIDER_TECH_SCAN_INTERACTIVE_V1: cambia la ficha al seleccionar un punto o sistema.
+    const techSystems = {
+      bateria: {index:"SISTEMA 01 / ENERGÍA",name:"Batería y alimentación",desc:"La batería alimenta el sistema eléctrico. Se revisan su estado y las conexiones accesibles, sin abrir el paquete de celdas como parte de una inspección rutinaria.",checks:["Estado general y fijaciones","Conectores y cableado accesible","Funcionamiento de la carga","Señales visibles de deterioro"]},
+      motor: {index:"SISTEMA 02 / PROPULSIÓN",name:"Motor eléctrico",desc:"El motor transforma la energía eléctrica en movimiento. La revisión depende de si es un motor integrado en la rueda o de otro tipo.",checks:["Ruidos o vibraciones anormales","Fijaciones y conexiones accesibles","Respuesta del sistema de tracción","Señales de desgaste o daños"]},
+      frenos: {index:"SISTEMA 03 / SEGURIDAD",name:"Frenos",desc:"Un punto prioritario de seguridad. El tipo de inspección depende del sistema de freno instalado.",checks:["Desgaste de pastillas o zapatas","Estado de discos y superficies","Accionamiento y respuesta","Fugas si el sistema es hidráulico"]},
+      ruedas: {index:"SISTEMA 04 / RODAMIENTO",name:"Ruedas y neumáticos",desc:"Permiten mantener el contacto con el suelo y una conducción estable. La presión correcta depende de las especificaciones del fabricante.",checks:["Presión y estado de neumáticos","Desgaste, cortes y deformaciones","Juego en ejes y rodamientos","Estado de llantas y fijaciones"]},
+      controlador: {index:"SISTEMA 05 / ELECTRÓNICA",name:"Controlador y cableado",desc:"El controlador gestiona la entrega de potencia del motor. Las pruebas eléctricas más profundas requieren herramientas y procedimientos adecuados.",checks:["Conectores y cables visibles","Fijaciones y protección","Señales de humedad o recalentamiento","Códigos de error, si están disponibles"]},
+      suspension: {index:"SISTEMA 06 / ESTABILIDAD",name:"Suspensión y dirección",desc:"Se revisan los elementos que ayudan a mantener el control y absorber irregularidades del camino.",checks:["Holguras y fijaciones","Funcionamiento de la suspensión","Juego en dirección","Ruidos y desgaste visibles"]}
+    };
+    const techButtons = document.querySelectorAll("[data-tech]");
+    const techIndex = document.getElementById("tech-index");
+    const techName = document.getElementById("tech-name");
+    const techDesc = document.getElementById("tech-desc");
+    const techChecks = document.getElementById("tech-checks");
+    function selectTechSystem(key) {
+      const system = techSystems[key];
+      if (!system) return;
+      techIndex.textContent = system.index;
+      techName.textContent = system.name;
+      techDesc.textContent = system.desc;
+      techChecks.replaceChildren(...system.checks.map(check => {
+        const li = document.createElement("li");
+        li.textContent = check;
+        return li;
+      }));
+      techButtons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.tech === key)));
+    }
+    techButtons.forEach(button => button.addEventListener("click", () => selectTechSystem(button.dataset.tech)));
 
     const motionScene = document.querySelector(".motion-scene");
     if (motionScene && !reduceMotion) {
