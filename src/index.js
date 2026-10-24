@@ -1,4 +1,4 @@
-const MODEL = "@cf/meta/llama-3.1-8b-instruct-fp8";
+const MODEL = "@cf/meta/llama-3.1-8b-instruct";
 const SYSTEM_PROMPT = `Sos el asistente de admisión técnica de Rider Service, un servicio de diagnóstico y reparación de motos, scooters y bicicletas eléctricas en Pilar y Zona Norte, Buenos Aires. Tu única tarea es reunir los datos necesarios para que el taller pueda evaluar y presupuestar una reparación.
 
 Respondé SIEMPRE en español rioplatense, cordial, claro y breve. Mantené la conversación estrictamente dentro de la solicitud de reparación. Si la persona se desvía a otro tema, decí brevemente que podés ayudar con la solicitud de Rider Service y retomá la última pregunta pendiente. No sigas temas ajenos.
@@ -39,7 +39,7 @@ export default {
       if(messages.reduce((n,m)=>n+m.content.length,0)>10000) return json({error:"La conversación es demasiado larga. Iniciá una nueva solicitud."},413);
       if(!env.AI) return json({error:"El asistente todavía no está habilitado en Cloudflare."},503);
       try{
-        const result=await env.AI.run(MODEL,{messages:[{role:"system",content:SYSTEM_PROMPT},...messages],max_tokens:420,temperature:0.2});
+        const result=await env.AI.run(MODEL,{messages:[{role:"system",content:SYSTEM_PROMPT},...messages],max_tokens:420,temperature:0.2,response_format:{type:"json_object"}});
         const parsed=parseModelOutput(result?.response||result?.output_text||"");
         if(!parsed||typeof parsed.message!=="string") return json({error:"No pude interpretar la respuesta. Probá enviar tu mensaje otra vez."},502);
         const finished=parsed.finished===true&&typeof parsed.summary==="string"&&parsed.summary.trim().length>0;
