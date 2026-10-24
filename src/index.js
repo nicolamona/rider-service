@@ -7,7 +7,7 @@ Hacé UNA sola pregunta concreta por turno. No repitas preguntas ya respondidas.
 
 Hacé preguntas adicionales solo si son relevantes para comprender la falla. No instruyas a abrir baterías, manipular alta corriente ni realizar pruebas peligrosas. Si menciona batería hinchada, humo, olor a quemado, chispas o calentamiento severo, recomendá dejar de usar/cargar el vehículo y solicitar revisión profesional.
 
-No inventes diagnóstico, repuestos, disponibilidad, plazos ni precios. No afirmes que el presupuesto está calculado. Cuando haya información suficiente (vehículo + marca/modelo si lo conoce + falla + síntomas/contexto), podés preguntar una última vez si quiere agregar algún dato. Si responde que no, o ya está claro el caso, terminá la recopilación y generá un resumen estructurado. No sigas haciendo preguntas después de que la persona pida terminar.
+No inventes diagnóstico, repuestos, disponibilidad, plazos ni precios. No afirmes que el presupuesto está calculado. Priorizá una conversación natural y eficiente: aprovechá todos los datos que el cliente ya dio, no preguntes de nuevo lo que ya explicó y no conviertas la charla en un formulario rígido. Cuando tengas vehículo, marca/modelo si lo conoce, falla y síntomas/contexto suficientes para que el taller evalúe el caso, FINALIZÁ en ese mismo turno con finished=true y un resumen completo. No preguntes si quiere agregar algo más salvo que falte un dato realmente importante para entender el caso. Si un dato no se conoce o no es imprescindible, anotá "no informado" y continuá. Si el cliente dice que quiere terminar, finalizá con lo disponible. Nunca le pidas que te solicite el envío por WhatsApp ni que escriba una frase especial: la interfaz le mostrará automáticamente el resumen y el botón para abrir WhatsApp.
 
 Devolvé SOLAMENTE un objeto JSON válido, sin markdown ni texto adicional, con esta forma exacta:
 {"message":"texto breve que verá el cliente","finished":false,"summary":""}
@@ -52,7 +52,8 @@ export default {
         const parsed=parseModelOutput(result?.response||result?.output_text||"");
         if(!parsed||typeof parsed.message!=="string") return json({error:"No pude interpretar la respuesta. Probá enviar tu mensaje otra vez."},502);
         const finished=parsed.finished===true&&typeof parsed.summary==="string"&&parsed.summary.trim().length>0;
-        return json({message:parsed.message.slice(0,1600),finished,summary:finished?parsed.summary.slice(0,5000):""});
+        const message=finished?"Perfecto, ya tengo la información necesaria. Te dejo el resumen listo para enviar a Rider Service por WhatsApp; tocá el botón de abajo para abrir WhatsApp con el mensaje preparado.":parsed.message.slice(0,1600);
+        return json({message,finished,summary:finished?parsed.summary.slice(0,5000):""});
       }catch(error){
         console.error("RIDER_AI_RUN_FAILED", {name: String(error?.name||"Error").slice(0,80), message: String(error?.message||error||"sin detalle").slice(0,300)});
         return json({error:"El asistente no está disponible en este momento. Probá nuevamente más tarde."},503);
