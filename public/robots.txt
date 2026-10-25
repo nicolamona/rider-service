@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rider-service.riderservices.workers.dev/sitemap.xml
